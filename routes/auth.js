@@ -92,8 +92,8 @@ router.post('/register', async (req, res) => {
             const transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: 'your-email@gmail.com', // Your Gmail email address
-                    pass: 'your-app-password' // Your Gmail app password or account password
+                    user: process.env.EMAIL_USER, // Use environment variable for email
+                    pass: process.env.EMAIL_PASS  // Use environment variable for password
                 }
             });
 
@@ -102,7 +102,7 @@ router.post('/register', async (req, res) => {
                 from: 'no-reply@yourdomain.com', // Sender email
                 to: user.email, // Recipient email
                 subject: 'Email Verification', // Subject line
-                text: `Verify your email: http://localhost:3000/auth/verify/${token}` // Email body with verification link
+                text: `Verify your email: https://${req.hostname}/auth/verify/${token}` // Update verification link
             };
 
             // Send the email
@@ -115,7 +115,7 @@ router.post('/register', async (req, res) => {
         // Redirect to login page after successful registration
         res.redirect('/auth/login');
     } catch (error) {
-        console.error(error);
+        console.error('Error during registration:', error);
         res.status(500).send('Error registering new user.');
     }
 });
