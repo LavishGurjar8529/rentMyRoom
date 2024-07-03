@@ -8,10 +8,10 @@ const User = require('../models/User');
 
 dotenv.config();
 
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
+cloudinary.config({ 
+    cloud_name: 'dv3wp7wkp', 
+    api_key: '231666164798457', 
+    api_secret: 'o1_Nfqh2iNM29EN6-qBBCjNtX4Y'
   });
   
 
