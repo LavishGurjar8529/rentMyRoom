@@ -92,8 +92,8 @@ router.post('/register', async (req, res) => {
             const transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: process.env.EMAIL_USER, // Use environment variable for email
-                    pass: process.env.EMAIL_PASS  // Use environment variable for password
+                    user: 'lavishgurjar8529496261@gmail.com', // Use environment variable for email
+                    pass: 'vzijxvcqwhpxakrl'  // Use environment variable for password
                 }
             });
 
